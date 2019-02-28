@@ -7,9 +7,9 @@ x3 = "On which days more than 1% of the requests lead to error?"
 
 first_query = """
 SELECT articles.title,
-	   count(*)
+       count(*)
 FROM log,
-	 articles
+articles
 WHERE log.path = '/article/' || articles.slug
 GROUP BY articles.title
 ORDER BY count(*) DESC
@@ -35,6 +35,7 @@ select * from (
     on a.day = b.day)
 as t where errp > 1.0;
 """
+
 
 class Problem:
     def __init__(self):
